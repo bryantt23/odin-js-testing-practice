@@ -28,9 +28,28 @@ const calculator = {
     return a * b;
   }
 };
-
+function isLetter(str) {
+  return str.length === 1 && str.match(/[a-z]/i);
+}
+function isLowerCase(str) {
+  return str === str.toLowerCase() && str !== str.toUpperCase();
+}
 function caesarCipher(string, shift) {
   // Your implementation here
+  let res = '';
+  for (const c of string.split('')) {
+    if (!isLetter(c)) {
+      res += c;
+    } else {
+      const next = c.charCodeAt(0);
+      if (isLowerCase(c)) {
+        res += String.fromCharCode(((next + shift - 97) % 26) + 97);
+      } else {
+        res += String.fromCharCode(((next + shift - 65) % 26) + 65);
+      }
+    }
+  }
+  return res;
 }
 
 function analyzeArray(array) {
