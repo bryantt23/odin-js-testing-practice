@@ -2,24 +2,30 @@
 
 function capitalize(string) {
   // Your implementation here
+  return string.substring(0, 1).toUpperCase() + string.substring(1);
 }
 
 function reverseString(string) {
   // Your implementation here
+  return string.split('').reverse().join('');
 }
 
 const calculator = {
   add(a, b) {
     // Your implementation here
+    return a + b;
   },
   subtract(a, b) {
     // Your implementation here
+    return a - b;
   },
   divide(a, b) {
     // Your implementation here
+    return a / b;
   },
   multiply(a, b) {
     // Your implementation here
+    return a * b;
   }
 };
 
@@ -29,6 +35,11 @@ function caesarCipher(string, shift) {
 
 function analyzeArray(array) {
   // Your implementation here
+  const length = array.length;
+  let average = array.reduce((prev, cur) => prev + cur, 0) / length,
+    min = Math.min(...array),
+    max = Math.max(...array);
+  return { length, average, min, max };
 }
 
 // Jest Tests
